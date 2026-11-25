@@ -2,7 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta Pixel Code -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ULTIMATE TOSS REPORT - Telegram Updates</title>
+
+<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -12,16 +16,16 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
+
 fbq('init', '1450992617204785');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1450992617204785&ev=PageView&noscript=1"
-/></noscript>
+
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1450992617204785&ev=PageView&noscript=1"/>
+</noscript>
 <!-- End Meta Pixel Code -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ULTIMATE TOSS REPORT - Telegram Updates</title>
 
 <style>
 * {
@@ -129,25 +133,13 @@ body {
     line-height: 1.6;
 }
 
-.agency {
-    margin-top: 28px;
-    font-size: 16px;
-}
-
-.agency a {
-    color: #5595ff;
-    text-decoration: underline;
-}
-
 @media(max-width:400px) {
     .container {
         padding: 35px 20px;
     }
-
     .logo {
         font-size: 21px;
     }
-
     .telegram-btn {
         font-size: 18px;
     }
@@ -159,12 +151,10 @@ body {
 
 <div class="container">
 
-    <div class="logo">
-        ULTIMATE TOSS REPORT
-    </div>
+    <div class="logo">ULTIMATE TOSS REPORT</div>
 
     <div class="highlight">
-        Accurate analysis • Match Update • Right Prediction
+        Cricket Analysis • Match Updates • Team News
     </div>
 
     <div class="timer">
@@ -173,12 +163,12 @@ body {
     </div>
 
     <a class="telegram-btn"
+       id="telegramButton"
        href="https://t.me/+FydaunHBjDowY2Y9"
        target="_blank"
        rel="noopener noreferrer">
 
         <span>JOIN TELEGRAM FOR NEW<br>UPDATE</span>
-
         <span class="telegram-icon">➤</span>
     </a>
 
@@ -189,27 +179,44 @@ body {
         analysis, and general information for fans.
         It does not promote betting or gambling.
         No outcomes are guaranteed. Please verify
-        independently and act responsibly.
+        information independently.
     </div>
+
 </div>
 
 <script>
+// Countdown timer
 let seconds = 8;
-
 const countdown = document.getElementById("countdown");
 
 const timer = setInterval(function() {
-
     seconds--;
-
     countdown.textContent = seconds + "s";
 
     if (seconds <= 0) {
         clearInterval(timer);
         countdown.textContent = "Offer available";
     }
-
 }, 1000);
+
+
+// Telegram button click tracking
+const telegramButton = document.getElementById("telegramButton");
+
+let clickTracked = false;
+
+telegramButton.addEventListener("click", function() {
+
+    if (clickTracked) return;
+
+    clickTracked = true;
+
+    if (typeof fbq === "function") {
+        fbq('trackCustom', 'TelegramClick');
+    }
+
+});
+
 </script>
 
 </body>
